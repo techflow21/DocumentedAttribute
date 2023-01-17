@@ -8,7 +8,7 @@ namespace DocumentedAttribute
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Custom Atttribute Implementation");
+            Console.WriteLine("\n\t Custom Atttribute Implementation");
 
             GetInfos.GetDocs(typeof(Trainee));
         }
