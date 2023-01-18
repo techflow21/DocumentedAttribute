@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 
 namespace DocumentedAttribute
 {
@@ -12,7 +13,7 @@ namespace DocumentedAttribute
 
             GetMethodAttribute(classType);
 
-            GetEnumAttribute();
+            GetEnumAttribute(classType);
 
         }
 
@@ -38,7 +39,7 @@ namespace DocumentedAttribute
         public static void GetMethodAttribute(Type classType)
         {
 
-            Console.WriteLine("\n\t Method Attribute Info: ");
+            Console.WriteLine("\n\t Method Attribute Info:\n\t=========================== ");
 
             MethodInfo[] methods = classType.GetMethods();
 
@@ -52,7 +53,7 @@ namespace DocumentedAttribute
                     {
                         DocumentAttribute methodDocument = (DocumentAttribute)methodAttribute;
 
-                        Console.WriteLine($"\n\t Method Name: {methods[count].Name}\t Method Description: {methodDocument.Description}\t Method Input: {methodDocument.Input}");
+                        Console.WriteLine($"\n\t Method Name: {methods[count].Name}\n\t Method Description: {methodDocument.Description}\n\t Method Input: {methodDocument.Input}\n\t Method Output: {methodDocument.Output}");
                     }
                 }
             }
@@ -61,7 +62,7 @@ namespace DocumentedAttribute
 
         public static void GetPropertyAttribute(Type classType)
         {
-            Console.WriteLine("\n\t Property Attribute Info: ");
+            Console.WriteLine("\n\t Property Attribute Info:\n\t========================== ");
 
             PropertyInfo[] properties = classType.GetProperties();
 
@@ -74,7 +75,7 @@ namespace DocumentedAttribute
                     if (propertyAttribute is DocumentAttribute)
                     {
                         DocumentAttribute propertyDocument = (DocumentAttribute) propertyAttribute;
-                        Console.WriteLine($"\n\t Property Name: {properties[count].Name}\t Property Description: {propertyDocument.Description}\t Property Input: {propertyDocument.Input}");
+                        Console.WriteLine($"\n\t Property Name: {properties[count].Name}\n\t Property Description: {propertyDocument.Description}\n\t Property Input: {propertyDocument.Input}\n\t Property Output: {propertyDocument.Output}");
                     }
                 }
             }
@@ -82,17 +83,23 @@ namespace DocumentedAttribute
         }
 
 
-        public static void GetEnumAttribute()
+        public static void GetEnumAttribute(Type classType)
         {
-            Console.WriteLine("\n\t Enum Attribute Info: ");
+            Console.WriteLine("\n\t Enum Attribute Info: \n\t==============================");
 
-            var fields = typeof(Trainee).GetFields();
-            foreach (var field in fields)
+            FieldInfo[] fields = classType.GetFields();
+
+            for (int count = 0; count < fields.GetLength(0); count++)
             {
-                var attr = field.GetCustomAttribute<DocumentAttribute>();
-                if (attr != null)
+                object[] fieldAttributes = fields[count].GetCustomAttributes(true);
+
+                foreach (Attribute fieldAttribute in fieldAttributes)
                 {
-                    Console.WriteLine($"\n\t Method Name: {field.Name}\t Method Description: {attr.Description}\t Method Input: {attr.Input}");
+                    if (fieldAttribute is DocumentAttribute)
+                    {
+                        DocumentAttribute fieldDocument = (DocumentAttribute)fieldAttribute;
+                        Console.WriteLine($"\n\t Field Name: {fields[count].Name}\t Field Description: {fieldDocument.Description}\t Field Input: {fieldDocument.Input}");
+                    }
                 }
             }
         }

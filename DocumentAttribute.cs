@@ -11,8 +11,7 @@ namespace DocumentedAttribute
         public DocumentAttribute(string description)
         {
             Description = description;
-            //Input = input;
-           // Output = output;
+            
         }
     }
 }
