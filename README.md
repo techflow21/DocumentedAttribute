@@ -1,2 +1,2 @@
 # DocumentedAttribute
-This is a Custom Attribute implementation and its use case.
+This is a Documentation Tool withnCustom Attribute implementation.The Custom attribute has one required parameter and two optional parameters.
