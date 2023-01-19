@@ -11,7 +11,6 @@ namespace DocumentedAttribute
         public DocumentAttribute(string description)
         {
             Description = description;
-            
         }
     }
 }

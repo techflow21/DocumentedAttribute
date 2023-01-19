@@ -1,45 +1,22 @@
 ﻿
 namespace DocumentedAttribute
 {
-
-    [Document("This is a class attribute describing a Trainee")]
+    [Document("This is a Trainee class")]
     class Trainee
     {
+        [Document("This is a name property of Trainee class")]
+        public string Name { get; set; }
 
-        [Document("This is a constructor attribute describing a Trainee", Input = "Adebola", Output = "The Trainee name is Adebola")]
-        public Trainee(string fullname, string cohort)
+        [Document("This is a method of Trainee class", Input = "Bello", Output = "")]
+        public void SetName(string name)
         {
-            Fullname = fullname;
-            Cohort = cohort;
+            Name = name;
         }
 
-
-        [Document("This is a Cohort property attribute of a Trainee", Input = "Cohort 3", Output = "Cohort 3")]
-        public string Cohort { get; private set; }
-
-
-        [Document("This is a Fullname property attribute of a Trainee", Input = "Adebola Adebisi", Output = "The Trainee fullname is Adebola Adebisi")]
-        public string Fullname { get; private set; }
-
-
-        [Document("This is a Trainee Scream style enum", Input = "enum choice of screams taken", Output = "Output enums Info")]
-        enum TraineeScreams
+        [Document("This is another method of Trainee class", Input = "", Output = "Bello")]
+        public string GetName()
         {
-            [Document("This is a Trainee Scream enum", Input = "enum choice of screams taken", Output = "Output enums Info")]
-            Omo,
-
-            [Document("This is a Trainee Scream enum", Input = "enum choice of screams taken", Output = "Output enums Info")]
-            HeyGod,
-
-            [Document("This is a Trainee Scream enum", Input = "enum choice of screams taken", Output = "Output enums Info")]
-            GodAbeg,
-
-            [Document("This is a Trainee Scream enum", Input = "enum choice of screams taken", Output = "Output enums Info")]
-            OhShit
+            return Name;
         }
-
-        [Document("This is a get Trainee Scream method attribute", Input = "input may be enum", Output = "enum choosen")]
-        public static void GetTraineeScreams() => Console.WriteLine(TraineeScreams.GodAbeg);
-
     }
 }

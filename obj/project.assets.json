@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\HP\\Desktop\\NewM\\DocumentedAttribute\\DocumentedAttribute.csproj",
+      "projectUniqueName": "C:\\Users\\HP\\Desktop\\DocumentedAttribute\\DocumentedAttribute.csproj",
       "projectName": "DocumentedAttribute",
-      "projectPath": "C:\\Users\\HP\\Desktop\\NewM\\DocumentedAttribute\\DocumentedAttribute.csproj",
+      "projectPath": "C:\\Users\\HP\\Desktop\\DocumentedAttribute\\DocumentedAttribute.csproj",
       "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\HP\\Desktop\\NewM\\DocumentedAttribute\\obj\\",
+      "outputPath": "C:\\Users\\HP\\Desktop\\DocumentedAttribute\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
